@@ -19,3 +19,39 @@
 </div>
 </body>
 </html>
+//class backend extends dev{
+//    use ofPlank;
+//
+//    static function upRank($rank){
+//
+//        if (isset($_POST['ranked']))
+//        {   $rank = 1;
+//            $rank++;
+//
+//        }
+//
+//    }
+//
+////    static function upRank($rank){
+////        $rank = 1;
+////        $rank++;
+////    foreach ($rank as $item  => $item_count);
+////    ("Item=" . $item . ", Value=" . $item_count);
+////    echo $item;
+////}
+//}
+//
+//
+//
+//class frontend extends dev{
+//
+//
+//use ofPlank;
+//
+//}
+//    public function upRank($rank){
+//        if (isset($_POST['ranked'])){
+//            $rank = 1;
+//            $rank++;
+//        }
+//    }

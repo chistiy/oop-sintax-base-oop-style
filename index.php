@@ -7,24 +7,46 @@ interface primat {
     public function drink(bool $d);
 }
 trait ofPlank{
-    function cofeeTime(){ echo 'drink cofee';}
+    function cofeeTime($cof){ echo 'drink cofee';}
 }
 
 abstract class human{
     public string $name;
 //    public string $position;
-    public static $rank = array(
-        1=>'junior',
-        2=>'middle',
-        3=>'senior',
-        4=>'lead'
-    );
 
     abstract public function work(string $work);
 }
 
 
 class dev extends human implements primat{
+    use ofPlank;
+    public  $rank = array(
+        1=>'junior',
+        2=>'middle',
+        3=>'senior',
+        4=>'lead'
+    );
+        public int $rankState = 0;
+
+        public function __construct(int $currentRank)
+        {
+      $this->rankState = $currentRank;
+            }
+    public function show()
+    {
+        echo $this->rank[$this->rankState];
+    }
+
+    public function Up()
+    {
+        $this->rankState++;
+    }
+
+    public function Down()
+    {
+        $this->rankState--;
+    }
+
 
 
 public function eat( $e)
@@ -38,7 +60,6 @@ public function eat( $e)
 
     // TODO: Implement eat() method.
 }
-//какой же я блять тупой
 public function drink($d)
 {
     if ($d ==1){
@@ -47,73 +68,52 @@ public function drink($d)
         echo 'хочет пить    ';
     } ; // TODO: Implement drink() method.
 }
-
+  use ofPlank;
     public function work($work)
     {
         $work = 'пошёл на работу';
-        echo $work;
         // TODO: Implement work() method.
     }
-    public function upRank($rank){
-        if (isset($_POST['ranked'])){
-            $rank = 1;
-            $rank++;
-        }
-    }
-    use ofPlank;
-}
-$backend = new dev();
 
-//class backend extends dev{
-//    use ofPlank;
+
+} echo 'повышения бэкендера с ';
+$backend = new dev(1,);
+echo $backend->show()."\n";
+$backend->Up();
+echo 'до ';
+echo $backend->show()."\n";
+
+//var_dump($backend);
+?>
+<br><?php
+echo 'фронтендер уровня  ';
+$frontend = new dev(1,);
+echo $frontend->show()."\n";
+?>
+<br>
+<br>
+<br>
+<br>
+<br><?php
+//foreach (rank as $key => $key_mame){
+//    echo $key_mame;
+//    echo $key;
 //
-//    static function upRank($rank){
-//
-//        if (isset($_POST['ranked']))
-//        {   $rank = 1;
-//            $rank++;
-//
+//}
+
+
+//print_r($backend);
+// if (isset($_POST['ranked'])){
+//          $backend->rank++;
 //        }
-//
-//    }
-//
-////    static function upRank($rank){
-////        $rank = 1;
-////        $rank++;
-////    foreach ($rank as $item  => $item_count);
-////    ("Item=" . $item . ", Value=" . $item_count);
-////    echo $item;
-////}
-//}
+//foreach (rank as $item  => $item_count);
+//    ("Item=" . $item . ", Value=" . $item_count);
+//    echo $item ;
 //
 //
-//
-//class frontend extends dev{
-//
-//
-//use ofPlank;
-//
-//}
 
 ?>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<form action="index.php" method="POST">
-    <input name="ranked" type="submit" value="повысить" />
 
-</form>
-<button> понизить</button>
-<div>Переменная из php:<?php  ?>
-</div>
-</body>
-</html>
+
 
