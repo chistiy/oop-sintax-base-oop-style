@@ -2,23 +2,21 @@
 
 declare(strict_types=1);
 
-interface primat {
+interface Primat {
     public function eat(bool $e);
     public function drink(bool $d);
 }
 trait ofPlank{
-    function cofeeTime($cof){ echo 'drink cofee';}
+    function cofeeTime($cof){ echo 'пьёт кофе ';}
 }
 
-abstract class human{
+abstract class Human{
     public string $name;
-//    public string $position;
-
     abstract public function work(string $work);
 }
 
 
-class dev extends human implements primat{
+class Dev extends Human implements primat{
     use ofPlank;
     public  $rank = array(
         1=>'junior',
@@ -65,7 +63,7 @@ public function drink($d)
     if ($d ==1){
         echo 'попил';}
     else {
-        echo 'хочет пить    ';
+        echo 'жажда';
     } ; // TODO: Implement drink() method.
 }
   use ofPlank;
@@ -77,43 +75,29 @@ public function drink($d)
 
 
 } echo 'повышения бэкендера с ';
-$backend = new dev(1,);
+$backend = new Dev(1,);
 echo $backend->show()."\n";
 $backend->Up();
 echo 'до ';
 echo $backend->show()."\n";
-
+echo '|бэкендер хочет есть->';
+$backend->eat($e=1);
 //var_dump($backend);
+echo '|бахнул дебаф офисного планктона    ';
+$backend->cofeeTime(cof );
 ?>
 <br><?php
 echo 'фронтендер уровня  ';
 $frontend = new dev(1,);
 echo $frontend->show()."\n";
+echo '|фронтендер хочет пить->';
+$backend->drink($d=2);
 ?>
 <br>
 <br>
 <br>
 <br>
-<br><?php
-//foreach (rank as $key => $key_mame){
-//    echo $key_mame;
-//    echo $key;
-//
-//}
-
-
-//print_r($backend);
-// if (isset($_POST['ranked'])){
-//          $backend->rank++;
-//        }
-//foreach (rank as $item  => $item_count);
-//    ("Item=" . $item . ", Value=" . $item_count);
-//    echo $item ;
-//
-//
-
-?>
-
+<br>
 
 
 
