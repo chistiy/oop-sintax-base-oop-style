@@ -1,0 +1,21 @@
+{
+    "name": "webpractik/test",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Daniil",
+            "email": "d.kirpa@webpractik.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/App"
+
+                    }
+    }
+}
+
